@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap">
+    <title>Morsel Development</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Morsel Development</h1>
+        <div class="api-info">
+            <p class="general-info">Welcome to Morsel Development. Discover various APIs with extensive features.</p>
+            <!-- API Bilgileri -->
+            <div class="api-stats">
+                <p><strong>Total APIs:</strong> <%= totalApis %></p>
+                <p><strong>Total Requests:</strong> <%= totalRequests %></p>
+            </div>
+            <div id="detailed-info">
+                <% endpoints.forEach(function(api, index) { %>
+                    <div class="api-box">
+                        <h2>
+                            <%= api.url %> 
+                            <span class="status" style="background-color: <%= api.hits > 0 ? 'green' : 'gray' %>;"></span>
+                        </h2>
+                        <div class="button-container">
+                            <button onclick="toggleDetails(<%= index %>)">Details</button>
+                        </div>
+                        <div id="details-<%= index %>" class="details">
+                            <div>
+                                <strong>URL:</strong> <pre><%= api.url %></pre>
+                                <button class="copy-button" onclick="copyText('<%= api.url %>')">Copy</button>
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <strong>Data:</strong> <pre><%= api.data %></pre>
+                                <button class="copy-button" onclick="copyText('<%= api.data %>')">Copy</button>
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <strong>Requests:</strong> <%= api.hits %>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleDetails(index) {
+            const details = document.getElementById(`details-${index}`);
+            if (details.style.display === "none" || details.style.display === "") {
+                details.style.display = "block";
+            } else {
+                details.style.display = "none";
+            }
+        }
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert("Copied!");
+            }).catch(err => {
+                console.error('Copy Failed:', err);
+            });
+        }
+        // Hide detailed info initially
+        document.querySelectorAll('.details').forEach(details => {
+            details.style.display = 'none';
+        });
+    </script>
+</body>
+                      </html>

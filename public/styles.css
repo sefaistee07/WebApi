@@ -1,0 +1,180 @@
+/* Arka plan animasyonu */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-position: 0 0;
+    z-index: -1;
+}
+
+/* Sayfa içeriği */
+body {
+    background-color: #333;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* API Bilgi Bölümü */
+.api-stats {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    border: 2px solid rgba(85, 85, 85, 0.6); /* Gri çerçeve */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Siyah gölge */
+}
+
+.api-stats p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.api-box {
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    color: white;
+    border: 2px solid rgba(85, 85, 85, 0.6);
+    position: relative;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.api-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.api-box h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.api-box .status {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.api-box .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+button {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.details {
+    display: none;
+    margin-top: 10px;
+    padding: 15px;
+    background-color: rgba(28, 28, 28, 0.8);
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.details pre {
+    background-color: rgba(51, 51, 51, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.copy-button {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.copy-button:hover {
+    background-color: #218838;
+}
+
+/* Detayları Göster butonu */
+.show-details-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    margin: 20px auto;
+    width: 200px;
+    transition: background-color 0.3s;
+}
+
+.show-details-button:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,6 @@
+{
+  "endpoints": [
+    { "name": "Endpoint 1", "url": "/endpoint1", "hits": 0 },
+    { "name": "Endpoint 2", "url": "/endpoint2", "hits": 0 }
+  ]
+}
